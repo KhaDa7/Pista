@@ -1,0 +1,35 @@
+/* Stile per il video */
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+/* Stile per l'immagine e il carousel sotto il video */
+.video-image {
+    position: relative;
+    margin-top: 20px; /* Regola la distanza dall'alto del video */
+}
+
+.carousel {
+    margin-top: 3%; /* Regola la distanza tra l'immagine e il carousel */
+    height: 10%;
+    width: 40%;
+    left: 30%;
+    }
+
+
+.titolo{
+    margin-top: 40%;
+    text-align: center;
+}
+
+.navbar-logo {
+    height: 100px; /* Altezza desiderata dell'immagine */
+
+    margin-right: 10px; /* Margine a destra per separare l'immagine dal testo */
+}
+
+
