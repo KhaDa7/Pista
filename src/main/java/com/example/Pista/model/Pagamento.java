@@ -1,8 +1,6 @@
 package com.example.Pista.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.CollectionIdJdbcTypeCode;
-import org.hibernate.annotations.Generated;
 
 @Entity
 @Table(name = "pagamenti")
