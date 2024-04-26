@@ -1,4 +1,8 @@
 /* Stile per il video */
+body {
+background-color: red;
+}
+
 .video {
     position: absolute;
     top: 0;
@@ -32,4 +36,30 @@
     margin-right: 10px; /* Margine a destra per separare l'immagine dal testo */
 }
 
+/* Stile per il footer */
+footer {
+    background-color: #343a40; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+    text-align: center; /* Allineamento del testo al centro */
+    padding: 10px; /* Spazio interno */
+    display: flex; /* Utilizziamo flexbox per allineare gli elementi */
+    justify-content: space-between; /* Allinea gli elementi ai lati */
+    align-items: center; /* Centra verticalmente gli elementi */
+
+}
+
+/* Stile per le icone */
+.loghi {
+    display: flex; /* Utilizziamo flexbox per allineare gli elementi */
+    margin-left:70%;
+}
+
+.loghi a {
+    margin-left: 3px; /* Margine sinistro tra le icone */
+}
+
+.loghi img {
+    width: 30px; /* Dimensioni delle icone */
+    height: 30px;
+}
 
