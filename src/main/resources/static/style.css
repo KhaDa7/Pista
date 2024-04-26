@@ -1,4 +1,8 @@
 /* Stile per il video */
+body {
+background-color: red;
+}
+
 .video {
     position: absolute;
     top: 0;
