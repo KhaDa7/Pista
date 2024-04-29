@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light bg-dark">
-    <a class="navbar-brand" href="home.html">
+    <a class="navbar-brand" th:href="@{/}">
         <img src="foto/2.png" alt="logo" width="200" height="100" class="navbar-logo">
     </a>
     <div class="container">
@@ -27,7 +27,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/home}">
+                    <a class="nav-link active" aria-current="page" th:href="@{/}">
                         <h5>Home</h5>
                     </a>
                 </li>
@@ -64,36 +64,70 @@
             <div class="card">
                 <div class="card-header bg-primary text-white">Registrazione</div>
                 <div class="card-body">
-                    <form>
+                    <form th:object="${utente}" method="post">
+                        <!-- Nome -->
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control custom-input" id="nome" name="nome" required>
+                            <input type="text" class="form-control" id="nome" th:field="*{nome}" required>
+                            <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
                         </div>
+                        <!-- Cognome -->
                         <div class="mb-3">
                             <label for="cognome" class="form-label">Cognome</label>
-                            <input type="text" class="form-control custom-input" id="cognome" name="cognome" required>
+                            <input type="text" class="form-control" id="cognome" th:field="*{cognome}" required>
+                            <p th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></p>
                         </div>
+                        <!-- Username -->
                         <div class="mb-3">
-                            <label for="data_nascita" class="form-label">Data di nascita</label>
-                            <input type="date" class="form-control custom-input" id="data_nascita" name="data_nascita" required>
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" th:field="*{profilo.username}" required>
+                            <p th:if="${#fields.hasErrors('profilo.username')}" th:errors="*{profilo.username}"></p>
+                            <p th:if="${error != null}" th:text="${error}"></p>
                         </div>
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" th:field="*{profilo.password}" required>
+                            <p th:if="${#fields.hasErrors('profilo.password')}" th:errors="*{profilo.password}"></p>
+                        </div>
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" th:field="*{profilo.email}" required>
+                        </div>
+                        <!-- Data di nascita -->
+                        <div class="mb-3">
+                            <label for="dataDiNascita" class="form-label">Data di Nascita</label>
+                            <input type="date" class="form-control" id="dataDiNascita" th:field="*{dataDiNascita}" min="1954-01-01" max="2008-01-01" required>
+                        </div>
+                        <!-- Indirizzo -->
                         <div class="mb-3">
                             <label for="indirizzo" class="form-label">Indirizzo</label>
-                            <input type="text" class="form-control custom-input" id="indirizzo" name="indirizzo" required>
+                            <input type="text" class="form-control" id="indirizzo" th:field="*{indirizzo}" required>
                         </div>
+                        <!-- Genere -->
                         <div class="mb-3">
-                            <label for="genere" class="form-label">Genere</label>
-                            <input type="checkbox" class="form-check-input" id="genere" name="genere" required>
-                            <label class="form-check-label" for="genere">Uomo</label>
-                            <input type="checkbox" class="form-check-input" id="genere" name="genere" required>
-                            <label class="form-check-label" for="genere">Donna</label>
-                            <input type="checkbox" class="form-check-input" id="genere" name="genere" required>
-                            <label class="form-check-label" for="genere">Altro</label>
+                            <label class="form-label">Genere</label>
+                            <div class="form-check">
+                                <input class="form-check-input custom-input" type="radio" id="genere_uomo" name="genere" th:value="M" th:field="*{genere}" required>
+                                <label class="form-check-label" for="genere_uomo">Uomo</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input custom-input" type="radio" id="genere_donna" name="genere" th:value="F" th:field="*{genere}">
+                                <label class="form-check-label" for="genere_donna">Donna</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input custom-input" type="radio" id="genere_altro" name="genere" th:value="A" th:field="*{genere}">
+                                <label class="form-check-label" for="genere_altro">Altro</label>
+                            </div>
                         </div>
+                        <!-- Telefono -->
                         <div class="mb-3">
                             <label for="telefono" class="form-label">Telefono</label>
-                            <input type="tel" class="form-control custom-input" id="telefono" name="telefono" required>
+                            <input type="tel" class="form-control" id="telefono" th:field="*{telefono}" required>
+                            <p th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></p>
                         </div>
+                        <!-- Tipo Documento -->
                         <div class="mb-3">
                             <label for="documento" class="form-label">Tipo Documento</label>
                             <select class="form-select" id="documento" th:field="*{documento}" required>
@@ -102,11 +136,13 @@
                                 <option value="Patente">Patente</option>
                             </select>
                         </div>
+                        <!-- Numero Documento -->
                         <div class="mb-3">
-                            <label for="numero_documento" class="form-label">Numero Documento</label>
-                            <input type="text" class="form-control custom-input" id="numero_documento" name="numero_documento" required>
+                            <label for="numeroDocumento" class="form-label">Numero Documento</label>
+                            <input type="text" class="form-control" id="numeroDocumento" th:field="*{numeroDocumento}" required>
+                            <p th:if="${#fields.hasErrors('numeroDocumento')}" th:errors="*{numeroDocumento}"></p>
                         </div>
-                        <button type="submit" class="btn btn-primary">Registrati</button><a class="iscriviti" href="login.html" >Se sei gia registrato , clicca qui!</a>
+                        <button type="submit" class="btn btn-primary">Registrati</button><a class="iscriviti" th:href="@{/login}" >Se sei gia registrato, clicca qui!</a>
                     </form>
                 </div>
             </div>

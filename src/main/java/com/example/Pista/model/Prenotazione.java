@@ -27,17 +27,17 @@ public class Prenotazione {
     private Utente utente;
 
 
-    @OneToOne(cascade = CascadeType.REFRESH)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_auto", referencedColumnName = "id")
     private Auto auto;
 
 
-    @OneToOne(cascade = CascadeType.REFRESH)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_pagamento", referencedColumnName = "id")
     private Pagamento pagamento;
 
 
-    @OneToOne(cascade = CascadeType.REFRESH)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_pilota", referencedColumnName = "id")
     private Pilota pilota;
 

@@ -2,6 +2,7 @@ package com.example.Pista.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,11 +15,15 @@ public class Utente
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column
+    @Pattern(regexp = "[a-zA-z\\sàèìòù']{1,50}",message = "Caratteri non consentiti!")
     private String nome;
+
     @Column
+    @Pattern(regexp = "[a-zA-z\\sàèìòù']{1,50}",message = "Caratteri non consentiti!")
     private String cognome;
-    @Column
+    @Column(name = "data_nascita")
     private LocalDate dataDiNascita;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn (name = "id_profilo", referencedColumnName = "id")
@@ -34,14 +39,21 @@ public class Utente
     private List<Prenotazione> prenotazioni = new ArrayList<>();
 
     @Column
+    @Pattern(regexp = "[a-zA-z0-9.'\\sàèìòù']{1,50}",message = "Caratteri non consentiti!")
     private String indirizzo;
+
     @Column
     private String genere;
+
     @Column
+    @Pattern(regexp = "[0-9+]{1,12}",message = "Caratteri non validi!")
     private String telefono;
+
     @Column
     private String documento;
+
     @Column
+    @Pattern(regexp = "[a-zA-Z0-9]{1,50}",message = "Caratteri non consentiti!")
     private String numeroDocumento;
 
     public int getId() {
