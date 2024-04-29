@@ -1,38 +1,50 @@
-/* Stile per il video */
+@charset "UTF-8";
 
+/* Stile per il video */
 .video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100%; /* Rendi il video responsivo */
+    height: auto; /* Rendi l'altezza proporzionale alla larghezza per mantenere l'aspetto corretto */
     z-index: -1;
 }
 
 /* Stile per l'immagine e il carousel sotto il video */
 .video-image {
     position: relative;
-    margin-top: 20px; /* Regola la distanza dall'alto del video */
+    margin-top: 5px;
+    width: 100px; /* Rendi l'immagine responsiva */
+    height: auto; /* Rendi l'altezza proporzionale alla larghezza per mantenere l'aspetto corretto */
 }
 
 .carousel {
-    margin-top: 3%; /* Regola la distanza tra l'immagine e il carousel */
-    height: 10%;
-    width: 40%;
-    left: 30%;
-    }
+    position: relative;
+    width: 30%; /* Rendi il carousel responsivo */
+    height: auto; /* Rendi l'altezza proporzionale alla larghezza per mantenere l'aspetto corretto */
+    left: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh; /* Assicura che l'altezza del carousel-item sia almeno pari all'altezza della finestra del browser */
+}
 
-
-.titolo{
-    margin-top: 40%;
+/* Stile per il titolo */
+.titolo {
+    margin-top: 37%;
     text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/* Stile per il logo della navbar */
 .navbar-logo {
-    height: 100px; /* Altezza desiderata dell'immagine */
-
-    margin-right: 10px; /* Margine a destra per separare l'immagine dal testo */
+    height: 100px;
+    margin-right: 10px;
 }
 
+.testosotto{
+    margin-top: 1%;
+}
 
 /* Stile per il footer */
 footer {
@@ -59,6 +71,35 @@ footer {
 .loghi img {
     width: 30px; /* Dimensioni delle icone */
     height: 30px;
+
+}
+
+/* Stile per il link di login/registrazione */
+.login {
+    display: flex; /* Utilizziamo flexbox per allineare l'immagine e il testo */
+    align-items: center; /* Allinea verticalmente l'immagine e il testo */
+    margin-left: 300%;
+}
+
+/* Stile per l'immagine */
+.login img {
+    width: 30px; /* Dimensioni dell'immagine */
+    height: auto; /* Mantieni l'aspetto proporzionato */
+    margin-right: 5px; /* Margine a destra per separare l'immagine dal testo */
+}
+
+.list-group {
+    height: 50%;
+    width: 25%;
+ margin-left: 2%;
+    float: left;
+}
+
+#testo{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+    text-align: center;
+
 }
 
 
