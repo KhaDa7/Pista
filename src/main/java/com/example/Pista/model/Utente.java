@@ -53,6 +53,7 @@ public class Utente
     private String documento;
 
     @Column
+    @Pattern(regexp = "[a-zA-Z0-9]{1,50}",message = "Caratteri non consentiti!")
     private String numeroDocumento;
 
     public int getId() {

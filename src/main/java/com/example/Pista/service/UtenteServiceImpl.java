@@ -2,6 +2,7 @@ package com.example.Pista.service;
 
 import com.example.Pista.dao.UtenteDao;
 import com.example.Pista.model.Utente;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,18 @@ public class UtenteServiceImpl implements UtenteService
         if (utenteDao.findByProfiloUsername(username) == null) {
             return true;
         }
+        return false;
+    }
+
+
+    @Override
+    public boolean loginUtente(String username, String password, HttpSession session) {
+        Utente utente = utenteDao.findByProfiloUsernameAndProfiloPassword(username, password);
+                if (utente != null)
+                {
+                    session.setAttribute("utente", utente);
+                    return true;
+                }
         return false;
     }
 }
