@@ -1,4 +1,7 @@
 /* Stile per il video */
+body {
+background-color: red;
+}
 
 .video {
     position: absolute;
@@ -33,7 +36,6 @@
     margin-right: 10px; /* Margine a destra per separare l'immagine dal testo */
 }
 
-
 /* Stile per il footer */
 footer {
     background-color: #343a40; /* Colore di sfondo */
@@ -60,5 +62,4 @@ footer {
     width: 30px; /* Dimensioni delle icone */
     height: 30px;
 }
-
 
