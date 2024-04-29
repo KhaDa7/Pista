@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* Stile per il logo della navbar */
+.navbar-logo {
+    height: 100px;
+    margin-right: 10px;
+}
+
+/* Stile per il footer */
+footer {
+    background-color: #343a40; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+    text-align: center; /* Allineamento del testo al centro */
+    padding: 10px; /* Spazio interno */
+    display: flex; /* Utilizziamo flexbox per allineare gli elementi */
+    justify-content: space-between; /* Allinea gli elementi ai lati */
+    align-items: center; /* Centra verticalmente gli elementi */
+    min-height: 10vh;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5%;
+
+}
+
+/* Stile per le icone */
+.loghi {
+    display: flex; /* Utilizziamo flexbox per allineare gli elementi */
+    margin-left: 70%;
+}
+
+.loghi a {
+    margin-left: 3px; /* Margine sinistro tra le icone */
+}
+
+.loghi img {
+    width: 30px; /* Dimensioni delle icone */
+    height: 25px;
+}
+
+/* Stile personalizzato per lo sfondo bianco dell'input */
+.custom-input {
+    background-color: white;
+    color: black; /* Opzionale: imposta il colore del testo */
+}
