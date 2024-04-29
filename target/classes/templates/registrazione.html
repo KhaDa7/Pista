@@ -140,6 +140,7 @@
                         <div class="mb-3">
                             <label for="numeroDocumento" class="form-label">Numero Documento</label>
                             <input type="text" class="form-control" id="numeroDocumento" th:field="*{numeroDocumento}" required>
+                            <p th:if="${#fields.hasErrors('numeroDocumento')}" th:errors="*{numeroDocumento}"></p>
                         </div>
                         <button type="submit" class="btn btn-primary">Registrati</button><a class="iscriviti" th:href="@{/login}" >Se sei gia registrato, clicca qui!</a>
                     </form>
