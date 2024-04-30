@@ -1,6 +1,5 @@
 package com.example.Pista.controller;
 
-import com.example.Pista.model.Prenotazione;
 import com.example.Pista.model.Utente;
 import jakarta.servlet.http.HttpSession;
 import jdk.jfr.Registered;
@@ -22,8 +21,6 @@ public class RiservataUtenteController {
         if(session.getAttribute("utente") == null)
             return "redirect:/login";
         Utente utente = (Utente) session.getAttribute("utente");
-        Prenotazione prenotazione = (Prenotazione) session.getAttribute("prenotazione");
-        model.addAttribute("prenotazione", prenotazione);
         model.addAttribute("utente",utente);
         model.addAttribute("send" , send);
         return "riservatautente";

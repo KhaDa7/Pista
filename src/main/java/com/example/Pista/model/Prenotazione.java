@@ -3,7 +3,6 @@ package com.example.Pista.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,10 +15,10 @@ public class Prenotazione {
     private int id;
 
     @Column
-    private LocalDate dataCorsa;
+    private LocalDateTime dataOraCorsa;
 
 
-    @Column (name = "data_ora_pagamento")
+    @Column
     private LocalDateTime dataOraPagamento;
 
 
@@ -50,12 +49,12 @@ public class Prenotazione {
         this.id = id;
     }
 
-    public LocalDate getDataCorsa() {
-        return dataCorsa;
+    public LocalDateTime getDataOraCorsa() {
+        return dataOraCorsa;
     }
 
-    public void setDataCorsa(LocalDate dataCorsa) {
-        this.dataCorsa = dataCorsa;
+    public void setDataOraCorsa(LocalDateTime dataOraCorsa) {
+        this.dataOraCorsa = dataOraCorsa;
     }
 
     public LocalDateTime getDataOraPagamento() {
