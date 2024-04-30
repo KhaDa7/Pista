@@ -1,59 +1,131 @@
-<!DOCTYPE html >
-<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Circuito di Gara</title>
+    <title>Ricevuta di prenotazione</title>
     <!-- Collegamento al file CSS di Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Collegamento al file JavaScript di Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
     <!-- Il tuo stile personalizzato -->
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="ricevuta.css">
 </head>
+
 <body>
+<div class="container">
+    <h1>Ricevuta di prenotazione</h1>
+    <form id="bookingForm">
+        <label for="firstName">Nome:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
 
-<!-- Header -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">Circuito di Gara</a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="chisiamo.html">Chi Siamo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="auto.html">Auto in Scuderia</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="piloti.html">Piloti</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login/Registrazione</a>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
+        <label for="lastName">Cognome:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <div id="carCarousel" class="carousel slide" data-bs-interval="false">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-price="150"> <!-- Prezzo per la Lamborghini -->
+                    <img src="foto/2021-Lamborghini-Huracan-STO-012-2160-scaled.jpg" class="d-block w-100"
+                         alt="Lamborghini">
+                </div>
+                <div class="carousel-item" data-price="200"> <!-- Prezzo per l'Aston Martin -->
+                    <img src="foto/aston-martin-valhalla-2.jpg" class="d-block w-100" alt="Aston Martin">
+                </div>
+                <div class="carousel-item" data-price="180"> <!-- Prezzo per la Ferrari -->
+                    <img src="foto/ferrari-296-gtb-by-novitec.jpg" class="d-block w-100" alt="Ferrari">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div><br>
+
+        <label for="date">Data di prenotazione:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time">Orario di prenotazione (9:00 - 16:00):</label>
+        <select id="time" name="time" required>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+        </select><br><br>
+        <label>Scegli il metodo di pagamento:</label><br>
+        <label>
+            <input type="radio" name="paymentMethod" value="paypal" required>
+            <span class="selector"></span> PayPal
+        </label><br>
+        <label>
+            <input type="radio" name="paymentMethod" value="mastercard" required>
+            <span class="selector"></span> Mastercard
+        </label><br>
+        <label>
+            <input type="radio" name="paymentMethod" value="bonifico" required>
+            <span class="selector"></span> Bonifico
+        </label><br>
+
+
+        <button type="submit">Conferma prenotazione</button>
+    </form>
+
+    <div class="receipt" id="receipt" style="display: none;">
+        <h2>Ricevuta di prenotazione</h2>
+        <p><strong>Nome:</strong> <span id="receiptFirstName"></span></p>
+        <p><strong>Cognome:</strong> <span id="receiptLastName"></span></p>
+        <p><strong>Tipologia di auto prenotata:</strong> <span id="receiptCarType"></span></p>
+        <p><strong>Prezzo:</strong> <span id="receiptPrice"></span> Euro</p>
+        <p><strong>Data di prenotazione:</strong> <span id="receiptDate"></span></p>
+        <p><strong>Orario di prenotazione:</strong> <span id="receiptTime"></span></p>
+        <p><strong>Metodo di pagamento:</strong> <span id="receiptPaymentMethod"></span></p>
+
+
+        <!-- Avvertenza -->
+        <h2>Avvertenza</h2>
+        <p>Per favore presentarsi sempre almeno mezzo'ora prima dell'orario fissato, per le varie fasi di
+            preparazione</p>
     </div>
-</nav>
+</div>
 
-<!-- Contenuto della pagina -->
+<script>
+    // Gestione del submit del form
+    document.getElementById('bookingForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Evita il ricaricamento della pagina al submit del form
 
-<!-- Footer -->
-<footer>
-    <p>&copy; 2024 Circuito di Gara. Tutti i diritti riservati.</p>
-</footer>
+        // Recupera i valori inseriti nel form
+        var firstName = document.getElementById('firstName').value;
+        var lastName = document.getElementById('lastName').value;
+        var carType = document.querySelector('.carousel-item.active img').alt;
+        var price = document.querySelector('.carousel-item.active').getAttribute('data-price');
+        var date = document.getElementById('date').value;
+        var time = document.getElementById('time').value;
 
-<!-- Script di Bootstrap (opzionale se non si utilizzano componenti interattivi di Bootstrap come modali o dropdown) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></script>
+        // Nascondi il modulo di prenotazione
+        document.getElementById('bookingForm').style.display = 'none';
 
+        // Mostra la ricevuta
+        document.getElementById('receiptFirstName').textContent = firstName;
+        document.getElementById('receiptLastName').textContent = lastName;
+        document.getElementById('receiptCarType').textContent = carType;
+        document.getElementById('receiptPrice').textContent = price;
+        document.getElementById('receiptDate').textContent = date;
+        document.getElementById('receiptTime').textContent = time;
+
+        document.getElementById('receipt').style.display = 'block';
+    });
+</script>
 </body>
+
 </html>
