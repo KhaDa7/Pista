@@ -23,7 +23,7 @@ public class LoginController
                           Model model)
     {
         if(session.getAttribute("utente") != null)
-            return "redirect:/";
+            return "redirect:/riservatautente";
         model.addAttribute("error", error);
         return "login";
     }
@@ -36,7 +36,7 @@ public class LoginController
     {
         if(!utenteService.loginUtente(username, password, session))
             return "redirect:/login?error";
-        return "redirect:/";
+        return "redirect:/riservatautente";
     }
 
 }
