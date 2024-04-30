@@ -1,5 +1,6 @@
 package com.example.Pista.controller;
 
+import com.example.Pista.model.Pilota;
 import com.example.Pista.model.Prenotazione;
 import com.example.Pista.model.Utente;
 import com.example.Pista.service.PrenotazioneService;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
 
 @Controller
 @RequestMapping ("/prenotazioni")
@@ -26,15 +30,39 @@ public class PrenotazioniController
     UtenteService utenteService;
 
     @GetMapping
-    public String getPage (Model model) {
+    public String getPage (Model model, HttpSession session) {
+        Utente utente = (Utente) session.getAttribute("utente");
+        Pilota pilota = (Pilota) session.getAttribute("pilota");
+        if(utente == null){
+            return "redirect:/login";
+        }
+        session.setAttribute("utente", utente);
+        model.addAttribute("pilota", pilota);
+        model.addAttribute("utente", utente);
         Prenotazione prenotazione = new Prenotazione();
         model.addAttribute("prenotazione", prenotazione);
-        return "prenotazione";
+        return "prenotazioni";
     }
 
-    @PostMapping ("/invia")
-    public String inviaPage (HttpSession session ) {
-        prenotazioneService.inviaPrenotazione(session);
-        return "redirect:/riservatautente?send";
+    @PostMapping
+    public String inviaPage (@ModelAttribute("prenotazione") Prenotazione prenotazione,
+                             @RequestParam("auto") int idAuto,
+                             @RequestParam("dataCorsa") String data,
+                             @RequestParam("pilota") int idPilota,
+                             @RequestParam("pagamento") int idPagamento,
+                             HttpSession session,BindingResult result,
+                             Model model) {
+        prenotazioneService.inviaPrenotazione(session,idAuto,data,idPilota,idPagamento);
+        if(result.hasErrors())
+            return "prenotazioni";
+        if(!prenotazioneService.controlloPrenotazione(prenotazione.getDataCorsa()))
+        {
+            model.addAttribute("error", "Data già prenotata");
+            return "prenotazioni";
+        }
+
+        prenotazioneService.registraPrenotazione(prenotazione);
+        return "redirect:/riservatautente";
     }
+
 }
