@@ -6,9 +6,8 @@
 }
 
 img {
-    display: block;
-    width: 100%;
-    height: auto;
+    width:100%;
+
 }
 
 .overlay {
@@ -30,57 +29,85 @@ img {
     text-align: center;
     color: white;
     width: 80%;
-    /* Regola la larghezza del testo */
     max-width: 600px;
-    /* Larghezza massima del testo */
     padding: 20px;
-    /* Spaziatura interna */
     font-size: 1.2em;
-    /* Dimensione del testo */
     z-index: 2;
+
 }
+
+.background{
+    background-color: aqua;
+    width: 80%;
+}
+
 /* font per titolo */
 h1 {
-    font-family: "Roboto", sans-serif;
     font-weight: 700;
     font-style: normal;
+    font-family: "Mokoto";
+    color: rgb(224, 3, 3);
+    opacity: 0.8;
+
 }
+
 /* font per corpo */
 p {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-style: normal;
+    font-family: "Mokoto";
+    opacity: 0.8;
+    background: linear-gradient(to bottom, rgba(187, 187, 187, 0), rgb(0, 0, 0));
+    margin-bottom: 15%;
+
 }
-
-/*.map {
-    width: 25%;
-    height: auto;
-    margin-top: 25px; /* Aggiunge spazio sopra l'immagine della mappa */
-    float: right; /* Posiziona l'immagine della mappa a destra */
-    clear: right; /* Impedisce che l'immagine della mappa si sovrapponga ai float a sinistra */
-   /* margin-right: 20px;
- }
-   */
-
-.additional-content {
-    margin-top: 20px; /* Aggiunge spazio sopra il contenuto aggiuntivo */
-}
-
-.map {
-    width: 25%;
-    height: auto;
-    margin-top: 25px; /* Aggiunge spazio sopra l'immagine della mappa */
-    float: right; /* Posiziona l'immagine della mappa a destra */
-    clear: right; /* Impedisce che l'immagine della mappa si sovrapponga ai float a sinistra */
-    margin-right: 20px;
-}
-
-.col-md-6 {
-    padding-right: 15px; /* Aggiunge spazio a destra del testo a sinistra */
-    padding-left: 15px; /* Aggiunge spazio a sinistra del testo a sinistra */
-}
-
 
 footer {
-    margin-bottom: 20px; /* Aggiunge spazio sotto il footer */
+
+    width: 100%;
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+
+}
+
+.col:hover{
+    transform: translateX(10px) scale(1.1); /* Sposta a destra e ingrandisce leggermente */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.nav-item {
+    padding: 10px 20px;
+    transition: transform 0.4s ease;
+    font-family: "Mokoto";
+}
+
+.nav-item:hover {
+    transform: translateX(10px) scale(1.1); /* Sposta a destra e ingrandisce leggermente */
+    cursor: pointer;
+    color: red;
+}
+
+#Logo , h5 {
+    font-family: 'Mokoto';
+    font-size: xx-large;
+}
+
+#Pilot {
+    color: red;
+
+}
+
+.super{
+    margin-left:34%;
+    margin-bottom: 3%;
+}
+
+
+/* Stile personalizzato per lo sfondo bianco dell'input */
+.custom-input {
+    background-color: white;
+    color: black; /* Opzionale: imposta il colore del testo */
 }
