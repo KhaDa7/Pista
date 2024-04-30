@@ -1,22 +1,129 @@
 @charset "UTF-8";
 
-/* Stile per il video */
-
-.video {
-    position: absolute;
+#myVideo {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Rendi il video responsivo */
-    height: auto; /* Rendi l'altezza proporzionale alla larghezza per mantenere l'aspetto corretto */
-    z-index: -1;
+    width: 100%; /* larghezza del 100% della viewport */
+    height: 100%; /* altezza del 100% della viewport */
+    z-index: 9999; /* Impostato su un valore alto per essere sopra tutti gli altri elementi */
 }
 
-/* Stile per l'immagine e il carousel sotto il video */
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    background-color: transparent !important;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.play-button:hover {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+.col:hover{
+    transform: translateX(10px) scale(1.1); /* Sposta a destra e ingrandisce leggermente */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.nav-item {
+    padding: 10px 20px;
+    transition: transform 0.4s ease;
+    font-family: "Mokoto";
+}
+
+.nav-item:hover {
+    transform: translateX(10px) scale(1.1); /* Sposta a destra e ingrandisce leggermente */
+    cursor: pointer;
+    color: red;
+}
+
+#Logo , h5 {
+    font-family: 'Mokoto';
+    font-size: xx-large;
+}
+
+#Pilot {
+    color: red;
+}
+
 .video-image {
-    position: relative;
-    margin-top: 5px;
-    width: 100px; /* Rendi l'immagine responsiva */
-    height: auto; /* Rendi l'altezza proporzionale alla larghezza per mantenere l'aspetto corretto */
+    position: absolute;
+    margin-top: 200px; /* Regola la distanza dall'alto del video */
+}
+
+.carousel {
+    margin-top: 3%; /* Regola la distanza tra l'immagine e il carousel */
+    height: 10%;
+    width: 40%;
+    left: 30%;
+}
+
+.card.mb-3 {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+h2 {
+    color: white;
+}
+
+.text1 {
+    text-align: center;
+    text-justify: auto;
+    padding-top: 10%;
+}
+
+.card-text {
+    font-size: 180%;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Imposta l'altezza minima del corpo al 100% dell'altezza della viewport */
+}
+
+.main {
+    flex: 1; /* Fa in modo che il main occupi lo spazio rimanente verticale */
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.card-text {
+    font-size: 180%;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Imposta l'altezza minima del corpo al 100% dell'altezza della viewport */
+}
+
+.main {
+    flex: 1; /* Fa in modo che il main occupi lo spazio rimanente verticale */
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.titolo {
+    margin-top: 4%;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .carousel {
@@ -28,69 +135,16 @@
     align-items: center;
     justify-content: center;
     min-height: 50vh; /* Assicura che l'altezza del carousel-item sia almeno pari all'altezza della finestra del browser */
-}
-
-/* Stile per il titolo */
-.titolo {
-    margin-top: 37%;
-    text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-/* Stile per il logo della navbar */
-.navbar-logo {
-    height: 100px;
-    margin-right: 10px;
-}
-
-
-/* Stile per il footer */
-footer {
-    background-color: #343a40; /* Colore di sfondo */
-    color: white; /* Colore del testo */
-    text-align: center; /* Allineamento del testo al centro */
-    padding: 10px; /* Spazio interno */
-    display: flex; /* Utilizziamo flexbox per allineare gli elementi */
-    justify-content: space-between; /* Allinea gli elementi ai lati */
-    align-items: center; /* Centra verticalmente gli elementi */
+    margin-top: 2%;
 
 }
-
-/* Stile per le icone */
-.loghi {
-    display: flex; /* Utilizziamo flexbox per allineare gli elementi */
-    margin-left:70%;
-}
-
-.loghi a {
-    margin-left: 3px; /* Margine sinistro tra le icone */
-}
-
-.loghi img {
-    width: 30px; /* Dimensioni delle icone */
-    height: 30px;
-
-}
-
-/* Stile per il link di login/registrazione */
-.login {
-    display: flex; /* Utilizziamo flexbox per allineare l'immagine e il testo */
-    align-items: center; /* Allinea verticalmente l'immagine e il testo */
-    margin-left: 300%;
-}
-
-/* Stile per l'immagine */
-.login img {
-    width: 30px; /* Dimensioni dell'immagine */
-    height: auto; /* Mantieni l'aspetto proporzionato */
-    margin-right: 5px; /* Margine a destra per separare l'immagine dal testo */
-}
-
 .list-group {
     height: 50%;
     width: 25%;
- margin-left: 2%;
+    margin-left: 5%;
     float: left;
+    margin-top:3% ;
+
 }
 
 #testo{
@@ -100,3 +154,12 @@ footer {
 
 }
 
+.sfondo-pagina {
+    background-image: url('foto/blacbg.jpg');
+    background-size: cover; /* Adatta l'immagine allo spazio disponibile */
+    background-repeat: no-repeat; /* Non ripetere l'immagine */
+    /* Altri stili per la tua immagine di sfondo, come background-position, ecc. */
+}
+ul,li {
+    background-color: transparent !important;
+}
