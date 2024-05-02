@@ -8,5 +8,4 @@ import java.time.LocalDate;
 public interface PrenotazioneService {
     void inviaPrenotazione(HttpSession session, int idAuto, String data,int idPilota, int idPagamento);
     boolean controlloPrenotazione(LocalDate data);
-    void registraPrenotazione(Prenotazione prenotazione);
 }

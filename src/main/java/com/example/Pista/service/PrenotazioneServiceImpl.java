@@ -45,13 +45,9 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
 
     @Override
     public boolean controlloPrenotazione(LocalDate data) {
+        if(prenotazioneDao.findByDataCorsa(data) == null){
+            return true;
+        }
         return false;
     }
-
-    @Override
-    public void registraPrenotazione(Prenotazione prenotazione) {
-        prenotazioneDao.save(prenotazione);
-    }
-
-
 }

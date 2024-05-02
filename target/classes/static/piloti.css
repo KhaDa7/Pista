@@ -1,6 +1,6 @@
-@charset "UTF-8";
+ @charset "UTF-8";
 
-footer {
+ footer {
 
     width: 100%;
     background-color: #343a40;
@@ -49,6 +49,11 @@ footer {
     color: black; /* Opzionale: imposta il colore del testo */
 }
 
-.card{
-    margin-top: 20%;
+#Logo , h5 {
+    font-family: 'Mokoto';
+    font-size: xx-large;
+}
+
+#Pilot {
+    color: red;
 }

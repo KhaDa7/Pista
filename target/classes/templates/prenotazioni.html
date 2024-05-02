@@ -36,7 +36,7 @@
 
         <label for="dataCorsa">Data di prenotazione:</label>
         <input type="date" id="dataCorsa" name="dataCorsa" required><br><br>
-        <p th:if="${error != null}" class="error-message" th:text="${error}"></p>
+        <p th:if="${error != null}">Data già prenotata, seleziona un'altra data</p>
 
         <label>Scegli il metodo di pagamento:</label><br>
         <label>
