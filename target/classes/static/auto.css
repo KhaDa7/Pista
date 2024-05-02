@@ -52,43 +52,43 @@ width: 100%;
 height: auto;
 }
 /* Stile per il footer */
-.footer {
-    background-color: #343a40;
-    color: white;
-    text-align: center;
-    padding: 20px 10px;
+footer {
+    background-color: #343a40; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+    text-align: center; /* Allineamento del testo al centro */
+    padding: 10px; /* Spazio interno */
+    display: flex; /* Utilizziamo flexbox per allineare gli elementi */
+    justify-content: space-between; /* Allinea gli elementi ai lati */
+    align-items: center; /* Centra verticalmente gli elementi */
 
 }
 
-.col:hover{
-    transform: translateX(10px) scale(1.1); /* Sposta a destra e ingrandisce leggermente */
-    cursor: pointer;
-    transition: transform 0.2s ease;
+/* Stile per le icone */
+.loghi {
+    display: flex; /* Utilizziamo flexbox per allineare gli elementi */
+    margin-left:70%;
 }
 
-.nav-item {
-    padding: 10px 20px;
-    transition: transform 0.4s ease;
-    font-family: "Mokoto";
+.loghi a {
+    margin-left: 3px; /* Margine sinistro tra le icone */
 }
 
-.nav-item:hover {
-    transform: translateX(10px) scale(1.1); /* Sposta a destra e ingrandisce leggermente */
-    cursor: pointer;
-    color: red;
-}
-
-#Logo , h5 {
-    font-family: 'Mokoto';
-    font-size: xx-large;
-}
-
-#Pilot {
-    color: red;
+.loghi img {
+    width: 30px; /* Dimensioni delle icone */
+    height: 30px;
 
 }
 
-.super{
-    margin-left:34%;
-    margin-bottom: 3%;
+/* Stile per il link di login/registrazione */
+.login {
+    display: flex; /* Utilizziamo flexbox per allineare l'immagine e il testo */
+    align-items: center; /* Allinea verticalmente l'immagine e il testo */
+    margin-left: 300%;
+}
+
+/* Stile per l'immagine */
+.login img {
+    width: 30px; /* Dimensioni dell'immagine */
+    height: auto; /* Mantieni l'aspetto proporzionato */
+    margin-right: 5px; /* Margine a destra per separare l'immagine dal testo */
 }

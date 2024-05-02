@@ -15,7 +15,6 @@ public class UtenteServiceImpl implements UtenteService
     public void registraUtente(Utente utente)
     {
         utenteDao.save(utente);
-
     }
 
     @Override
