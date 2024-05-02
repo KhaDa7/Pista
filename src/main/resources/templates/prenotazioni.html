@@ -19,41 +19,24 @@
 <body>
 <div class="container">
     <h1>Ricevuta di prenotazione</h1>
-
-    <div id="carCarousel" class="carousel slide" data-bs-interval="false">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-price="150">
-                <img src="2021-Lamborghini-Huracan-STO-012-2160-scaled.jpg" class="d-block w-100"
-                     alt="Lamborghini">
-            </div>
-            <div class="carousel-item" data-price="200">
-                <img src="aston-martin-valhalla-2.jpg" class="d-block w-100" alt="Aston Martin">
-            </div>
-            <div class="carousel-item" data-price="180">
-                <img src="ferrari-296-gtb-by-novitec.jpg" class="d-block w-100" alt="Ferrari">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div><br>
-
     <form id="bookingForm" method="post">
 
-        <input type="text" id="firstName" name="nome" th:value="${utente.nome}" readonly><br><br>
-        <input type="text" id="lastName" name="cognome" th:value="${utente.cognome}" readonly><br><br>
+        <input type="text" name="nome" th:value="${utente.nome}" readonly><br><br>
+        <input type="text" name="cognome" th:value="${utente.cognome}" readonly><br><br>
+        <input type="text" name="pilota" value="1">
 
         <select name ="auto">
-            <option value="1">Ferrari</option>
+            <option value="1">Ferrari Roma</option>
+            <option value="2">Lamborghini Huracan</option>
+            <option value="3">Ferrari 296 GTB</option>
+            <option value="4">Ferrari 488 Pista</option>
+            <option value="5">Ferrari SF90 Stradale</option>
+            <option value="6">McLaren P1 GTR</option>
         </select>
 
         <label for="dataCorsa">Data di prenotazione:</label>
         <input type="date" id="dataCorsa" name="dataCorsa" required><br><br>
+        <p th:if="${error != null}" class="error-message" th:text="${error}"></p>
 
         <label>Scegli il metodo di pagamento:</label><br>
         <label>
@@ -70,7 +53,7 @@
         </label><br>
 
        <button type="submit">Conferma prenotazione</button>
-        <p th:if="${send != null}">Ordine inviato!! Grazie</p>
+        <p th:if="${send != null}">Ordine inviato! Grazie.</p>
     </form>
 
     <div class="receipt" id="receipt" style="display: none;">

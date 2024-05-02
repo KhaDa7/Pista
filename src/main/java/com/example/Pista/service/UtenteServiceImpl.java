@@ -31,11 +31,10 @@ public class UtenteServiceImpl implements UtenteService
     @Override
     public boolean loginUtente(String username, String password, HttpSession session) {
         Utente utente = utenteDao.findByProfiloUsernameAndProfiloPassword(username, password);
-                if (utente != null)
-                {
-                    session.setAttribute("utente", utente);
-                    return true;
-                }
+        if (utente != null) {
+            session.setAttribute("utente", utente);
+            return true;
+        }
         return false;
     }
 }

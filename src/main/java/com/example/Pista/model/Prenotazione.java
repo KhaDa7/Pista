@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "prenotazioni")
@@ -18,29 +20,25 @@ public class Prenotazione {
     @Column
     private LocalDate dataCorsa;
 
-
     @Column(name = "data_ora_pagamento")
     private LocalDateTime dataOraPagamento;
-
 
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_utente", referencedColumnName = "id")
     private Utente utente;
 
-
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_auto", referencedColumnName = "id")
     private Auto auto;
-
 
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_pagamento", referencedColumnName = "id")
     private Pagamento pagamento;
 
-
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_pilota", referencedColumnName = "id")
     private Pilota pilota;
+
 
     public int getId() {
         return id;
@@ -97,4 +95,6 @@ public class Prenotazione {
     public void setPilota(Pilota pilota) {
         this.pilota = pilota;
     }
+
+
 }
