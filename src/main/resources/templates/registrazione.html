@@ -94,6 +94,8 @@
                         <div class="mb-3">
                             <label for="email" class="form-label">E-mail</label>
                             <input type="email" class="form-control" id="email" th:field="*{profilo.email}" required>
+                            <p th:if="${#fields.hasErrors('profilo.email')}" th:errors="*{profilo.email}"></p>
+                            <p th:if="${errormail != null}" th:text="${errormail}"></p>
                         </div>
                         <!-- Data di nascita -->
                         <div class="mb-3">

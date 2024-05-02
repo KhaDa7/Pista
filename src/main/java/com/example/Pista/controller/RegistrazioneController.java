@@ -36,7 +36,11 @@ public class RegistrazioneController
             return "registrazione";
         if(!utenteService.controlloUsername(utente.getProfilo().getUsername()))
         {
-            model.addAttribute("error", "Username Già Utilizzato");
+            model.addAttribute("error", "Username già utilizzato");
+            return "registrazione";
+        }
+        if (!utenteService.controlloEmail(utente.getProfilo().getEmail())){
+            model.addAttribute("errormail", "Email già utilizzata");
             return "registrazione";
         }
         utenteService.registraUtente(utente);

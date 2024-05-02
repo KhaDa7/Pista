@@ -37,5 +37,13 @@ public class UtenteServiceImpl implements UtenteService
                 }
         return false;
     }
+
+    @Override
+    public boolean controlloEmail(String email) {
+        if (utenteDao.findByProfiloEmail(email) == null) {
+            return true;
+        }
+        return false;
+    }
 }
 

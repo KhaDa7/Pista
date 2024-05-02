@@ -8,4 +8,5 @@ public interface UtenteService
     void registraUtente (Utente utente);
     boolean controlloUsername(String username);
     boolean loginUtente (String username, String password, HttpSession session);
+    boolean controlloEmail (String email);
 }
