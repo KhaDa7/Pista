@@ -1,7 +1,7 @@
 package com.example.Pista.controller;
 
-import com.example.Pista.model.Auto;
-import com.example.Pista.service.AutoService;
+import com.example.Pista.model.Pilota;
+import com.example.Pista.service.PilotaService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/auto")
-public class AutoController {
+@RequestMapping("/piloti")
+public class PilotaController {
 
     @Autowired
-    private AutoService autoService;
+    PilotaService pilotaService;
 
     @GetMapping
     public String getPage(Model model, HttpSession session) {
-        Auto auto = (Auto) session.getAttribute("auto");
-        model.addAttribute("auto", auto);
-        model.addAttribute("listaAuto", autoService.getListaAuto(session));
-        return "auto";
+        Pilota pilota =(Pilota) session.getAttribute("pilota");
+        model.addAttribute("pilota", pilota);
+        model.addAttribute("piloti", pilotaService.getListaPiloti(session));
+        return "piloti";
     }
 }
