@@ -49,8 +49,9 @@
             </button>
         </div><br>
 
-        <label for="date">Data di prenotazione:</label>
-        <input type="date" id="date" name="date" required><br><br>
+        <label for="dataCorsa">Data di prenotazione:</label>
+        <input type="date" id="dataCorsa" name="dataCorsa" required><br><br>
+        <p th:if="${error != null}">Data già prenotata, seleziona un'altra data</p>
 
         <label for="time">Orario di prenotazione (9:00 - 16:00):</label>
         <select id="time" name="time" required>

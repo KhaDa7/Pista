@@ -12,36 +12,55 @@
 </head>
 <body>
 
-<!-- Header -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">Circuito di Gara</a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="chisiamo.html">Chi Siamo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="auto.html">Auto in Scuderia</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="piloti.html">Piloti</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login/Registrazione</a>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
+        <input type="text" name="nome" th:value="${utente.nome}" readonly><br><br>
+        <input type="text" name="cognome" th:value="${utente.cognome}" readonly><br><br>
+        <input type="text" name="pilota" value="1">
+
+        <select name ="auto">
+            <option value="1">Ferrari Roma</option>
+            <option value="2">Lamborghini Huracan</option>
+            <option value="3">Ferrari 296 GTB</option>
+            <option value="4">Ferrari 488 Pista</option>
+            <option value="5">Ferrari SF90 Stradale</option>
+            <option value="6">McLaren P1 GTR</option>
+        </select>
+
+        <label for="dataCorsa">Data di prenotazione:</label>
+        <input type="date" id="dataCorsa" name="dataCorsa" required><br><br>
+        <p th:if="${error != null}">Data già prenotata, seleziona un'altra data</p>
+
+        <label>Scegli il metodo di pagamento:</label><br>
+        <label>
+            <input type="radio" name="pagamento" value="1" checked>
+            <span class="selector"></span> PayPal
+        </label><br>
+        <label>
+            <input type="radio" name="pagamento" value="2">
+            <span class="selector"></span> Mastercard
+        </label><br>
+        <label>
+            <input type="radio" name="pagamento" value="3">
+            <span class="selector"></span> Bonifico
+        </label><br>
+
+       <button type="submit">Conferma prenotazione</button>
+        <p th:if="${send != null}">Ordine inviato! Grazie.</p>
+    </form>
+
+    <div class="receipt" id="receipt" style="display: none;">
+        <h2>Ricevuta di prenotazione</h2>
+        <p><strong>Nome:</strong> <span id="receiptFirstName"></span></p>
+        <p><strong>Cognome:</strong> <span id="receiptLastName"></span></p>
+        <p><strong>Tipologia di auto prenotata:</strong> <span id="receiptCarType"></span></p>
+        <p><strong>Prezzo:</strong> <span id="receiptPrice"></span> Euro</p>
+        <p><strong>Data di prenotazione:</strong> <span id="receiptDate"></span></p>
+        <p><strong>Metodo di pagamento:</strong> <span id="receiptPaymentMethod"></span></p>
+
+
+        <!-- Avvertenza -->
+        <h2>Avvertenza</h2>
+        <p>Per favore presentarsi sempre almeno mezzo'ora prima dell'orario fissato, per le varie fasi di
+            preparazione</p>
     </div>
 </nav>
 

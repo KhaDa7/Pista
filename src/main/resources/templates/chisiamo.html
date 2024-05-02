@@ -21,65 +21,42 @@
 <body>
 
 <!-- Header -->
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <a class="navbar-brand" href="home.html">
-        <img src="foto/logo.png" alt="logo" width="200" height="100" class="navbar-logo">
-    </a>
-    <div class="container">
-        <a class="navbar-brand">
-            <h4>ProPilotCircuit</h4>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<body background="blacbg.jpg">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+        <div class="container-fluid">
+            <a class="navbar-brand" id="Logo" href="#">Pro<span id="Pilot">Pilot</span>Circuit</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/auto}">Auto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/piloti}">Piloti</a>
+                    </li>
+                </ul>
 
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/home}">
-                        <h5>Home</h5>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/chisiamo}">
-                        <h5>Chi Siamo</h5>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/auto}">
-                        <h5>Auto in Scuderia</h5>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/piloti}">
-                        <h5>Piloti</h5>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/prenotazioni}">
-                        <h5>Prenotazioni</h5>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="login nav-link" th:href="@{/login}">
-                        <div class="d-flex align-items-center">
-                            <img src="foto/login-icon-in-trendy-flat-style-isolated-on-white-background-approach-symbol-for-your-web-site-design-logo-app-ui-illustration-eps10-flat-style-for-graphic-design-vector.jpg"
-                                 alt="Icona di login" class="me-2">
-                            <span>Login/Registrazione</span>
-                        </div>
-                    </a>
-                </li>
-
-            </ul>
-
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link active" th:href="@{/login}">Login/Registarti</a>
+                    </li>
+                </ul>
+            </div>
         </div>
            </div>
 </nav>
 
 <!-- Contenuto della pagina -->
 <div class="image-container">
-    <img src="foto_chisiamo.jpg" alt="chisiamo">
+    <img src="chisiamo_grey.jpg" alt="chisiamo">
     <div class="overlay"></div>
     <div class="testo">
         <h1>Chi Siamo</h1>
