@@ -14,6 +14,18 @@
     <!-- Il tuo stile personalizzato -->
 
     <link rel="stylesheet" href="ricevuta.css">
+    <script>
+        function generateRandomNumber() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+
+        window.onload = function() {
+            var pilotaInput = document.getElementById('inputPilota');
+            if (!pilotaInput.value) {
+                pilotaInput.value = generateRandomNumber();
+            }
+        };
+    </script>
 </head>
 
 <body>
@@ -23,7 +35,8 @@
 
         <input type="text" name="nome" th:value="${utente.nome}" readonly><br><br>
         <input type="text" name="cognome" th:value="${utente.cognome}" readonly><br><br>
-        <input type="text" name="pilota" value="1">
+        <input type="text" name="pilota" th:value="${pilota != null ? pilota.id : ''}" id="inputPilota" readonly>
+
 
         <select name ="auto">
             <option value="1">Ferrari Roma</option>

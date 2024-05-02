@@ -32,8 +32,10 @@ public class PrenotazioniController {
             return "redirect:/login";
         } else {
             model.addAttribute("error", error);
-            model.addAttribute("pilota", pilota);
             model.addAttribute("utente", utente);
+            if (pilota != null) {
+                model.addAttribute("pilota", pilota);
+            }
             Prenotazione prenotazione = new Prenotazione();
             model.addAttribute("prenotazione", prenotazione);
             return "prenotazioni";

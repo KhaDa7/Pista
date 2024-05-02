@@ -1,5 +1,6 @@
 package com.example.Pista.controller;
 
+import com.example.Pista.model.Pilota;
 import com.example.Pista.model.Utente;
 import com.example.Pista.service.UtenteService;
 

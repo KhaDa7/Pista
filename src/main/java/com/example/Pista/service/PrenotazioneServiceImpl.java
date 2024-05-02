@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class PrenotazioneServiceImpl implements PrenotazioneService {
@@ -37,7 +38,7 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
             prenotazione.setDataCorsa(LocalDate.parse(data));
             prenotazione.setDataOraPagamento(LocalDateTime.now());
             prenotazione.setAuto(autoDao.findById(idAuto).get());
-            prenotazione.setPilota(pilotaDao.findById(1).get());
+            prenotazione.setPilota(pilotaDao.findById(idPilota).get());
             prenotazione.setPagamento(pagamentoDao.findById(idPagamento).get());
             prenotazioneDao.save(prenotazione);
         }
@@ -49,5 +50,16 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
             return true;
         }
         return false;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Prenotazione> getListaPrenotazioni(HttpSession session) {
+        return (List<Prenotazione>) prenotazioneDao.findAll();
+    }
+
+    @Override
+    public void rimuoviPrenotazioneDaLista(int idPrenotazione, HttpSession session) {
+        prenotazioneDao.deleteById(idPrenotazione);
     }
 }
