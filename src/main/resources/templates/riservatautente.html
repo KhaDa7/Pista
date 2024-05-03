@@ -12,16 +12,19 @@
 <body>
 <a th:href="@{/}">Torna in Home page</a>
 <a th:href="@{/riservatautente/logout}">Logout</a>
+
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                    <h3 class="text-center">Benvenuto nell'Area Riservata</h3>
+                    <h3 class="text-center" th:text="${utente.nome} + ' benvenut' + (${utente.genere == 'M' ? 'o' : (utente.genere == 'F' ? 'a' : '*')}) + ' in area riservata'"></h3>
                 </div>
+
                 <div class="card-body">
                     <h4>Storico Prenotazioni</h4>
-                    <h4 th:if="${lista == null}">Nessuna prenotazione presente</h4>
+                    <h4 th:if="${#lists.isEmpty(lista)}" style="color: red">Nessuna prenotazione </h4>
+
                     <table th:if="${lista != null}" class="table table-striped">
                         <thead>
                         <tr>
@@ -30,7 +33,6 @@
                             <th>Auto Utilizzata</th>
                             <th>Pilota Prenotato</th>
                             <th>Importo</th>
-                            <th>Modifica</th>
                             <th>Elimina</th>
                         </tr>
                         </thead>
@@ -42,16 +44,26 @@
                             <td th:text="${prenotazione.auto.marca} + ' ' + ${prenotazione.auto.modello}"></td>
                             <td th:text="${prenotazione.pilota.nome} + ' ' + ${prenotazione.pilota.cognome}"></td>
                             <td th:text="${prenotazione.auto.importo}"></td>
-                            <td>Modifica</td>
-                            <td><a th:href="@{/riservatautente/elimina(id=${prenotazione.id})}">Elimina</a></td>
+                            <td>
+                                <a th:href="@{/riservatautente/elimina(id=${prenotazione.id})}" onclick="return confirm('Sei sicuro di voler eliminare questa prenotazione?')" class="btn btn-danger">Elimina</a>
+                            </td>
                         </tr>
                         <!-- Aggiungi qui altre righe se necessario -->
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6"><a th:href="@{/prenotazioni}" class="btn btn-success">Nuova prenotazione</a></td>
+                            </tr>
+                        </tfoot>
                     </table>
+
                 </div>
             </div>
+
         </div>
+
     </div>
+
 </div>
 </body>
 </html>

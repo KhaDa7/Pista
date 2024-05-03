@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PilotaServiceImpl implements PilotaService {
@@ -16,5 +17,14 @@ public class PilotaServiceImpl implements PilotaService {
     @Override
     public List<Pilota> getListaPiloti(HttpSession session) {
         return (List<Pilota>) pilotaDao.findAll();
+    }
+
+    @Override
+    public Pilota getPilotaById(int id) {
+        Optional<Pilota> optionalPilota = pilotaDao.findById(id);
+        if(optionalPilota.isPresent()){
+            return optionalPilota.get();
+        }
+        return null;
     }
 }

@@ -49,6 +49,7 @@
     <div class="container text-center">
         <div class="row">
             <div class="col" th:each="auto : ${listaAuto}">
+                <a th:href="@{/dettagliauto(id=${auto.id})}">Dettagli</a>
                 <div class="card h-100">
                     <div class="col-md-4">
                         <img th:src="@{${auto.immagine}}" class="card-img-top img-fluid" alt="" style="max-height: 100px" onclick="displayFullScreen(this)">
@@ -62,6 +63,7 @@
                             <li class="list-group-item">Velocità massima: 349 km/h</li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </div>

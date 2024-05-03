@@ -26,12 +26,23 @@
             }
         };
     </script>
+    <script>
+        function validateDateAndSubmit(event) {
+            var selectedDate = document.getElementById("dataCorsa").value;
+            var today = new Date().toISOString().split('T')[0];
+            if (selectedDate < today) {
+                alert("Non puoi prenotare una data nel passato!");
+                event.preventDefault(); // Impedisce l'invio del modulo
+            }
+        }
+    </script>
+
 </head>
 
 <body>
 <div class="container">
     <h1>Ricevuta di prenotazione</h1>
-    <form id="bookingForm" method="post">
+    <form id="bookingForm" method="post" onsubmit="validateDateAndSubmit(event)">
 
         <input type="text" name="nome" th:value="${utente.nome}" readonly><br><br>
         <input type="text" name="cognome" th:value="${utente.cognome}" readonly><br><br>

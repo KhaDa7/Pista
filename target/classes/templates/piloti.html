@@ -51,6 +51,7 @@
             <div class="row">
                 <div class="col-md-12 col-lg-6">
                     <div class="card mb-3 h-95" th:each="pilota : ${piloti}">
+                        <a th:href="@{/dettaglipilota(id=${pilota.id})}">Dettagli</a>
                         <div class="row no-gutters">
                             <div class="col-md-4">
                                 <img th:src="@{${pilota.immagine}}" class="card-img" style="max-height: 100px">
