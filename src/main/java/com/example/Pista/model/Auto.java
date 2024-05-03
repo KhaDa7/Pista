@@ -19,6 +19,12 @@ public class Auto
     private String schedaTecnica;
     @Column
     private String immagine;
+    @Column
+    private String cavalli;
+    @Column
+    private String accelerazione;
+    @Column
+    private String velocitaMassima;
 
     public int getId() {
         return id;
@@ -66,5 +72,29 @@ public class Auto
 
     public void setImmagine(String immagine) {
         this.immagine = immagine;
+    }
+
+    public String getCavalli() {
+        return cavalli;
+    }
+
+    public void setCavalli(String cavalli) {
+        this.cavalli = cavalli;
+    }
+
+    public String getAccelerazione() {
+        return accelerazione;
+    }
+
+    public void setAccelerazione(String accelerazione) {
+        this.accelerazione = accelerazione;
+    }
+
+    public String getVelocitaMassima() {
+        return velocitaMassima;
+    }
+
+    public void setVelocitaMassima(String velocitaMassima) {
+        this.velocitaMassima = velocitaMassima;
     }
 }
