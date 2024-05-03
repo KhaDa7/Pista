@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="it" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Circuito di Gara</title>
     <!-- Collegamento al file CSS di Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
     <!-- Il tuo stile personalizzato -->
     <link rel="stylesheet" href="login.css">
-
 </head>
-<body>
 
+<body background="blacbg.jpg">
 <!-- Header -->
-<body background="blacbg.jpg"></body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
         <div class="container-fluid">
@@ -34,35 +35,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" th:href="@{/chisiamo}">Chi Siamo?</a>
                     </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/home}">
-                        <h5>Home</h5>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/chisiamo}">
-                        <h5>Chi Siamo</h5>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/auto}">
-                        <h5>Auto in Scuderia</h5>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/piloti}">
-                        <h5>Piloti</h5>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/prenotazioni}">
-                        <h5>Prenotazioni</h5>
-                    </a>
-                </li>
-
-            </ul>
-
+                </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item ">
                         <a class="nav-link active" th:href="@{/login}">Login/Registarti</a>
@@ -70,8 +43,7 @@
                 </ul>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 </header>
 <!-- Form di registrazione -->
 <div class="container mt-5">
@@ -88,22 +60,24 @@
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control custom-input" id="password" name="password">
+                            <input type="password" class="form-control custom-input" id="password"
+                                   name="password">
                             <button type="button" onclick="mostra()">Mostra/Nascondi</button>
                         </div>
                         <script>
-                            document.addEventListener("DOMContentLoaded", function() {
+                            document.addEventListener("DOMContentLoaded", function () {
                                 var pwd = document.getElementById("password");
                                 password.type = "password";
                             })
-                            function mostra(){
-                                if(password.type == "password")
-                                    password.type="text";
+
+                            function mostra() {
+                                if (password.type == "password")
+                                    password.type = "text";
                                 else
-                                    password.type="password";
+                                    password.type = "password";
                             }
                         </script>
-                        <button type="submit" class="btn btn-primary">Login</button> <a class="iscriviti" th:href="@{/registrazione}" >Se non sei registrato, clicca qui!</a>
+                        <button type="submit" class="btn btn-primary">Login</button> <a class="iscriviti" th:href="@{/registrazione}">Se non sei registrato, clicca qui!</a>
                     </form>
                 </div>
             </div>
@@ -122,4 +96,5 @@
     </div>
 </footer>
 </body>
+
 </html>

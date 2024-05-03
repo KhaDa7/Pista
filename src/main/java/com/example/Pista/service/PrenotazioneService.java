@@ -9,6 +9,6 @@ import java.util.List;
 public interface PrenotazioneService {
     void inviaPrenotazione(HttpSession session, int idAuto, String data,int idPilota, int idPagamento);
     boolean controlloPrenotazione(LocalDate data);
-    List<Prenotazione> getListaPrenotazioni(HttpSession session);
+    List<Prenotazione> getListaPrenotazioniById(HttpSession session, int idUtente);
     void rimuoviPrenotazioneDaLista(int idPrenotazione, HttpSession session);
 }

@@ -1,9 +1,6 @@
 package com.example.Pista.service;
 
-import com.example.Pista.dao.AutoDao;
-import com.example.Pista.dao.PagamentoDao;
-import com.example.Pista.dao.PilotaDao;
-import com.example.Pista.dao.PrenotazioneDao;
+import com.example.Pista.dao.*;
 import com.example.Pista.model.Prenotazione;
 import com.example.Pista.model.Utente;
 import jakarta.servlet.http.HttpSession;
@@ -27,6 +24,7 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
 
     @Autowired
     PilotaDao pilotaDao;
+
 
     @SuppressWarnings("OptionalGetWithoutIsPresent")
     @Override
@@ -52,10 +50,10 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
         return false;
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "OptionalGetWithoutIsPresent"})
     @Override
-    public List<Prenotazione> getListaPrenotazioni(HttpSession session) {
-        return (List<Prenotazione>) prenotazioneDao.findAll();
+    public List<Prenotazione> getListaPrenotazioniById(HttpSession session, int idUtente) {
+        return prenotazioneDao.findByUtenteId(idUtente);
     }
 
     @Override

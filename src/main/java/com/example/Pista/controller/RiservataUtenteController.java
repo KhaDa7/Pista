@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/riservatautente")
 public class RiservataUtenteController {
@@ -30,13 +32,15 @@ public class RiservataUtenteController {
         if(session.getAttribute("utente") == null)
             return "redirect:/login";
         Utente utente = (Utente) session.getAttribute("utente");
+        int idUtente = utente.getId();
         Prenotazione prenotazione = (Prenotazione) session.getAttribute("prenotazione");
+        List<Prenotazione> listaPrenotazioni = prenotazioneService.getListaPrenotazioniById(session, idUtente);
         Auto auto = (Auto) session.getAttribute("auto");
         Pilota pilota =(Pilota) session.getAttribute("pilota");
         model.addAttribute("pilota", pilota);
         model.addAttribute("auto", auto);
         model.addAttribute("prenotazione", prenotazione);
-        model.addAttribute("lista", prenotazioneService.getListaPrenotazioni(session));
+        model.addAttribute("lista", listaPrenotazioni);
         model.addAttribute("utente",utente);
         model.addAttribute("send" , send);
         return "riservatautente";
