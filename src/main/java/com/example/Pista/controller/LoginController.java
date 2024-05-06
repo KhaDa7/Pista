@@ -22,8 +22,11 @@ public class LoginController
                           @RequestParam (name="error", required = false) String error,
                           Model model)
     {
-        if(session.getAttribute("utente") != null)
-            return "redirect:/riservatautente";
+        if(session.getAttribute("utente") != null) {
+            model.addAttribute("loggedIn", true);
+        }else{
+            model.addAttribute("loggedIn", false);
+        }
         model.addAttribute("error", error);
         return "login";
     }

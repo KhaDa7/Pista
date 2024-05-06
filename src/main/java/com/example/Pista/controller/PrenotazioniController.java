@@ -33,6 +33,7 @@ public class PrenotazioniController {
         } else {
             model.addAttribute("error", error);
             model.addAttribute("utente", utente);
+            model.addAttribute("loggedIn", true);
             if (pilota != null) {
                 model.addAttribute("pilota", pilota);
             }

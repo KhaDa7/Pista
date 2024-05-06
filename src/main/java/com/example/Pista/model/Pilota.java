@@ -25,6 +25,20 @@ public class Pilota {
     private String bandieraNazionalita;
     @Column
     private String anniEsperienza;
+    @Column
+    private int gpDisputati;
+    @Column
+    private int gpVinti;
+    @Column
+    private int podi;
+    @Column
+    private int mondiali;
+    @Column
+    private String scuderia;
+    @Column
+    private String logoScuderia;
+    @Column
+    private String immagineDettaglio;
 
     public int getId() {
         return id;
@@ -88,5 +102,61 @@ public class Pilota {
 
     public void setAnniEsperienza(String anniEsperienza) {
         this.anniEsperienza = anniEsperienza;
+    }
+
+    public int getGpVinti() {
+        return gpVinti;
+    }
+
+    public void setGpVinti(int gpVinti) {
+        this.gpVinti = gpVinti;
+    }
+
+    public int getGpDisputati() {
+        return gpDisputati;
+    }
+
+    public void setGpDisputati(int gpDisputati) {
+        this.gpDisputati = gpDisputati;
+    }
+
+    public int getPodi() {
+        return podi;
+    }
+
+    public void setPodi(int podi) {
+        this.podi = podi;
+    }
+
+    public int getMondiali() {
+        return mondiali;
+    }
+
+    public void setMondiali(int mondiali) {
+        this.mondiali = mondiali;
+    }
+
+    public String getScuderia() {
+        return scuderia;
+    }
+
+    public void setScuderia(String scuderia) {
+        this.scuderia = scuderia;
+    }
+
+    public String getLogoScuderia() {
+        return logoScuderia;
+    }
+
+    public void setLogoScuderia(String logoScuderia) {
+        this.logoScuderia = logoScuderia;
+    }
+
+    public String getImmagineDettaglio() {
+        return immagineDettaglio;
+    }
+
+    public void setImmagineDettaglio(String immagineDettaglio) {
+        this.immagineDettaglio = immagineDettaglio;
     }
 }
