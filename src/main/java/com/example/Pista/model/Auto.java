@@ -25,6 +25,12 @@ public class Auto
     private String accelerazione;
     @Column
     private String velocitaMassima;
+    @Column
+    private String blueprint;
+    @Column
+    private String immagineDettaglio;
+    @Column
+    private String logoScuderia;
 
     public int getId() {
         return id;
@@ -96,5 +102,29 @@ public class Auto
 
     public void setVelocitaMassima(String velocitaMassima) {
         this.velocitaMassima = velocitaMassima;
+    }
+
+    public String getBlueprint() {
+        return blueprint;
+    }
+
+    public void setBlueprint(String blueprint) {
+        this.blueprint = blueprint;
+    }
+
+    public String getImmagineDettaglio() {
+        return immagineDettaglio;
+    }
+
+    public void setImmagineDettaglio(String immagineDettaglio) {
+        this.immagineDettaglio = immagineDettaglio;
+    }
+
+    public String getLogoScuderia() {
+        return logoScuderia;
+    }
+
+    public void setLogoScuderia(String logoScuderia) {
+        this.logoScuderia = logoScuderia;
     }
 }

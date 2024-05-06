@@ -21,6 +21,10 @@ public class Pilota {
     private String descrizione;
     @Column
     private String immagine;
+    @Column
+    private String bandieraNazionalita;
+    @Column
+    private String anniEsperienza;
 
     public int getId() {
         return id;
@@ -68,5 +72,21 @@ public class Pilota {
 
     public void setImmagine(String immagine) {
         this.immagine = immagine;
+    }
+
+    public String getBandieraNazionalita() {
+        return bandieraNazionalita;
+    }
+
+    public void setBandieraNazionalita(String bandieraNazionalita) {
+        this.bandieraNazionalita = bandieraNazionalita;
+    }
+
+    public String getAnniEsperienza() {
+        return anniEsperienza;
+    }
+
+    public void setAnniEsperienza(String anniEsperienza) {
+        this.anniEsperienza = anniEsperienza;
     }
 }

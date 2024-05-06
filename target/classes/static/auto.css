@@ -6,7 +6,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10000;
-    background-color: transparent !important;
+    background-color: transparent;
     color: white;
     transition: all 0.3s ease;
 }
@@ -62,10 +62,18 @@ h2{
 }
 .card-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: stretch; /* Assicura che tutte le carte abbiano la stessa altezza */
 }
 
 .card {
-    margin: 0 10px; /* Aggiungi un margine tra le card se necessario */
+    margin: 10px;
+    width: 350px;
+}
+
+#dettaglioAuto:hover {
+    transform: scale(1.1); /* Sposta a destra e ingrandisce leggermente */
+    cursor: pointer;
+    transition: transform 0.5s ease;
 }

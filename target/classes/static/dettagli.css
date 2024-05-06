@@ -1,0 +1,102 @@
+#myVideo {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* larghezza del 100% della viewport */
+    height: 100%; /* altezza del 100% della viewport */
+
+    z-index: 9999; /* Impostato su un valore alto per essere sopra tutti gli altri elementi */
+}
+
+
+.play-button {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    background-color: transparent !important;
+    color: white;
+    transition: all 0.3s ease;
+
+}
+.play-button:hover {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+.icone:hover{
+    transform: translateX(10px) scale(1.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.nav-item {
+    padding: 10px 20px;
+    transition: transform 0.4s ease;
+    font-family: "Mokoto";
+}
+
+.nav-item:hover {
+    transform: translateX(10px) scale(1.1); /* Sposta a destra e ingrandisce leggermente */
+    cursor: pointer;
+    color: rgba(255, 0, 0, 0.815);
+}
+
+.Logo , h5{
+    font-family: 'Mokoto';
+    font-size:xx-large;
+}
+
+.Pilot{
+    color:rgba(255, 0, 0, 0.815);
+}
+
+/* Stile per l'immagine e il carousel sotto il video */
+.video-image {
+    position:absolute;
+    margin-top: 200px; /* Regola la distanza dall'alto del video */
+}
+.carousel {
+    margin-top: 3%; /* Regola la distanza tra l'immagine e il carousel */
+    height: 10%;
+    width: 40%;
+    left: 30%;
+}
+.card.mb-3 {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+h2{
+    color: white;
+}
+
+.text1{
+    text-align: center;
+    text-justify: auto;
+    padding-top: 60px;
+}
+
+
+.card-text {
+    font-size: 180%;
+
+}
+
+#bottoneDettaglioAuto:hover {
+    transform: scale(1.1); /* Sposta a destra e ingrandisce leggermente */
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.mb-0:hover {
+    transform: scale(1.1); /* Sposta a destra e ingrandisce leggermente */
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.my-0{
+    margin-bottom: 0;
+}
