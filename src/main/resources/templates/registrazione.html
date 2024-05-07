@@ -133,7 +133,7 @@
                                         <p th:if="${#fields.hasErrors('profilo.username')}"
                                            th:errors="*{profilo.username}">
                                         </p>
-                                        <p th:if="${error != null}" th:text="${error}"></p>
+                                        <p th:if="${error != null}" th:text="'*' + ${error}" style="color: red"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -144,6 +144,7 @@
                                         <p th:if="${#fields.hasErrors('profilo.email')}"
                                            th:errors="*{profilo.email}">
                                         </p>
+                                        <p th:if="${errormail != null}" th:text="'*' + ${errormail}" style="color: red"></p>
                                     </div>
                                 </div>
                             </div>

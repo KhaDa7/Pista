@@ -55,15 +55,15 @@
     <h3 class="card-header nav-link text-center mt-4" th:text="${utente.nome} + ' benvenut' + (${utente.genere == 'M' ? 'o' : (utente.genere == 'F' ? 'a' : '*')}) + ' nella tua '" style="font-family: 'Mokoto', serif">
     </h3>
     <h2 id="titolo" class="text-center mt-2">Area riservata</h2>
-    <h4 th:if="${#lists.isEmpty(lista)}" class="text-center  mb-1 " style="color: red">NESSUNA PRENOTAZIONE</h4>
-    <h4 th:if="${!lista.isEmpty()}" class="text-center  mb-1 ">STORICO PRENOTAZIONI</h4>
+    <h4 th:if="${#lists.isEmpty(lista)}" class="text-center  mb-1 " style="font-family: Garet; font-style: italic; color: red;">NESSUNA PRENOTAZIONE</h4>
+    <h4 th:if="${!lista.isEmpty()}" class="text-center  mb-1 " style="font-family: Garet; font-style: italic;">STORICO PRENOTAZIONI</h4>
 
 
     <div class="container lg-8">
 
         <table class="table table-dark table-striped" th:if="${lista != null}">
             <thead>
-            <tr>
+            <tr style="font-family: Garet; font-style: italic;">
                 <th>Data Prenotazione</th>
                 <th>Data Corsa</th>
                 <th>Auto Utilizzata</th>
