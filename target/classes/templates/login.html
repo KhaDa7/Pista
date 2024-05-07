@@ -42,26 +42,15 @@
                         <a class="nav-link active" th:href="@{/chisiamo}">Chi Siamo?</a>
                     </li>
                 </ul>
-
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item" th:if="${loggedIn == true}">
-                        <a class="nav-link active" th:href="@{/riservatautente}" style="display: flex;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle d-flex" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 5px;">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                            </svg>
-                            <span th:text="'Ciao ' + ${utente.nome}"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item" th:if="${loggedIn == false}">
-                        <a class="nav-link active" th:href="@{/login}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
-                                <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
-                            </svg>Login/Registrati
-                        </a>
+                    <li class="nav-item ">
+                        <a class="nav-link disabled" aria-current="page" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                            <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                        </svg>Login/Registati</a>
                     </li>
                 </ul>
+
             </div>
         </div>
     </nav>
@@ -93,9 +82,12 @@
                                         </span>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button type="submit" class="btn" style="background-color: rgba(255, 0, 0, 0.815)">Login</button>
                             <a class="iscriviti" th:href="@{/registrazione}">Se non sei registrato, clicca qui!</a>
-                            <small class="form-text text-muted" th:if="${error != null}">Attenzione! Credenziali errate, riprova.</small>
+                            <div class="alert alert-danger mt-2" role="alert" th:if="${error != null}">
+                                Attenzione! Credenziali errate!
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -175,6 +167,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-F8hcbOl8d0nCME+P8jlFciu8da+pg0skF3p+GLBSj9CbqFY+gfPc4MwJMA8ga05r" crossorigin="anonymous"></script>
 <script>
+    // Aggiungi un evento click alla "x" dell'alert per chiuderlo
+    document.addEventListener('DOMContentLoaded', function () {
+        const closeButton = document.querySelector('.alert button');
+        if (closeButton) {
+            closeButton.addEventListener('click', function () {
+                // Trova il genitore dell'elemento, che è l'alert, e nascondilo
+                this.parentNode.style.display = 'none';
+            });
+        }
+    });
+
     AOS.init();
 
     const togglePassword = document.querySelector('#togglePassword');
@@ -188,6 +191,7 @@
         this.classList.toggle('fa-eye-slash');
     });
 </script>
+
 </body>
 
 </html>

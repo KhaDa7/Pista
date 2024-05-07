@@ -47,11 +47,11 @@ public class RiservataUtenteController {
     }
 
     @GetMapping("/logout")
-    public String logoutUtente(HttpSession session)
+    public String logoutUtente(HttpSession session, Model model)
     {
         // session.invalidate();
         session.removeAttribute("utente");
-        return "redirect:/";
+        return "redirect:/?back";
     }
 
     @GetMapping("/elimina")

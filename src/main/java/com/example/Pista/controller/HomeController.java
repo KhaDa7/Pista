@@ -21,7 +21,6 @@ public class HomeController {
         }else{
             model.addAttribute("loggedIn", false);
         }
-
         return "home";
     }
 }
